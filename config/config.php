@@ -1,14 +1,14 @@
 <?php
 
-//Ä¬ÈÏÃÜÂë "root" Ê¹ÓÃMD5 32Î»Ð¡Ð´¼ÓÃÜ ¼ÓÃÜÍøÖ· http://tool.chinaz.com/tools/md5.aspx
-//outputFolderÎªÏÂÔØÎÄ¼þ¼Ð£¬Ä©Î²Ã»ÓÐ¡°/¡±
-//security°²È«Ä¬ÈÏ true
+//é»˜è®¤å¯†ç  "root" ä½¿ç”¨MD5 32ä½å°å†™åŠ å¯† åŠ å¯†ç½‘å€ http://tool.chinaz.com/tools/md5.aspx
+//outputFolderä¸ºä¸‹è½½æ–‡ä»¶å¤¹ï¼Œæœ«å°¾æ²¡æœ‰â€œ/â€
+//securityå®‰å…¨é»˜è®¤ true
 
 return array(
-	"security" => true,
+	"security" => false,
 	"password" => "63a9f0ea7bb98050796b649e85481845",
-	"outputFolder" => "/volume1/Downloads",
+	"outputFolder" => "/video",
 	"extracter" => "ffmpeg",
-	"max_dl" => 3);
+	"max_dl" => 20);
 
 ?>

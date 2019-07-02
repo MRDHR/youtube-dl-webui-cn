@@ -1,121 +1,109 @@
 <?php
-
+header("Content-type:text/html;charset=utf-8");
 class FileHandler
 {
-	private $config = [];
-	private $videos_ext = ".{avi,mp4,flv,webm,mkv}";
-	private $musics_ext = ".{mp3,ogg,m4a,opus}";
+    private $config = [];
+    private $videos_ext = ".{avi,mp4,flv,webm,mkv}";
+    private $musics_ext = ".{mp3,ogg,m4a,opus}";
 
-	public function __construct()
-	{
-		$this->config = require dirname(__DIR__).'/config/config.php';
-	}
+    public function __construct()
+    {
+        $this->config = require dirname(__DIR__) . '/config/config.php';
+    }
 
-	public function listVideos()
-	{
-		$videos = [];
+    public function listVideos()
+    {
+        $videos = [];
 
-		if(!$this->outuput_folder_exists())
-			return;
+        if (!$this->outuput_folder_exists())
+            return;
 
-		$folder = $this->get_downloads_folder().'/';
+        $folder = $this->get_downloads_folder() . '/';
 
-		foreach(glob($folder.'*'.$this->videos_ext, GLOB_BRACE) as $file)
-		{
-			$video = [];
-			$video["name"] = str_replace($folder, "", $file);
-			$video["size"] = $this->to_human_filesize(filesize($file));
-			
-			$videos[] = $video;
-		}
+        foreach (glob($folder . '*' . $this->videos_ext, GLOB_BRACE) as $file) {
+            $video = [];
+            $video["name"] = str_replace($folder, "", $file);
+            $video["size"] = $this->to_human_filesize(filesize($file));
 
-		return $videos;
-	}
+            $videos[] = $video;
+        }
 
-	public function listMusics()
-	{
-		$musics = [];
+        return $videos;
+    }
 
-		if(!$this->outuput_folder_exists())
-			return;
+    public function listMusics()
+    {
+        $musics = [];
 
-		$folder = $this->get_downloads_folder().'/';
+        if (!$this->outuput_folder_exists())
+            return;
 
-		foreach(glob($folder.'*'.$this->musics_ext, GLOB_BRACE) as $file)
-		{
-			$music = [];
-			$music["name"] = str_replace($folder, "", $file);
-			$music["size"] = $this->to_human_filesize(filesize($file));
-			
-			$musics[] = $music;
-		}
+        $folder = $this->get_downloads_folder() . '/';
 
-		return $musics;
-	}
+        foreach (glob($folder . '*' . $this->musics_ext, GLOB_BRACE) as $file) {
+            $music = [];
+            $music["name"] = str_replace($folder, "", $file);
+            $music["size"] = $this->to_human_filesize(filesize($file));
 
-	public function delete($id, $type)
-	{
-		$folder = $this->get_downloads_folder().'/';
-		$i = 0;
+            $musics[] = $music;
+        }
 
-		if($type === 'v')
-		{
-			$exts = $this->videos_ext;
-		}
-		elseif($type === 'm')
-		{
-			$exts = $this->musics_ext;
-		}
-		else
-		{
-			return;
-		}
+        return $musics;
+    }
 
-		foreach(glob($folder.'*'.$exts, GLOB_BRACE) as $file)
-		{
-			if($i == $id)
-			{
-				unlink($file);
-			}
-			$i++;
-		}
-	}
+    public function delete($id, $type)
+    {
+        $folder = $this->get_downloads_folder() . '/';
+        $i = 0;
 
-	private function outuput_folder_exists()
-	{
-		if(!is_dir($this->get_downloads_folder()))
-		{
-			//Folder doesn't exist
-			if(!mkdir($this->get_downloads_folder(),0777))
-			{
-				return false; //No folder and creation failed
-			}
-		}
-		
-		return true;
-	}
+        if ($type === 'v') {
+            $exts = $this->videos_ext;
+        } elseif ($type === 'm') {
+            $exts = $this->musics_ext;
+        } else {
+            return;
+        }
 
-	public function to_human_filesize($bytes, $decimals = 0)
-	{
-		$sz = 'BKMGTP';
-		$factor = floor((strlen($bytes) - 1) / 3);
-		return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
-	}
+        foreach (glob($folder . '*' . $exts, GLOB_BRACE) as $file) {
+            if ($i == $id) {
+                unlink($file);
+            }
+            $i++;
+        }
+    }
 
-	public function free_space()
-	{
-		return $this->to_human_filesize(disk_free_space($this->get_downloads_folder()));
-	}
+    private function outuput_folder_exists()
+    {
+        if (!is_dir($this->get_downloads_folder())) {
+            //Folder doesn't exist
+            if (!mkdir($this->get_downloads_folder(), 0777)) {
+                return false; //No folder and creation failed
+            }
+        }
 
-	public function get_downloads_folder()
-	{
-                $path =  $this->config["outputFolder"];
-                if(strpos($path , "/") !== 0) 
-                {
-                        $path = dirname(__DIR__).'/' . $path;
-                }
-		return $path;
-	}
+        return true;
+    }
+
+    public function to_human_filesize($bytes, $decimals = 0)
+    {
+        $sz = 'BKMGTP';
+        $factor = floor((strlen($bytes) - 1) / 3);
+        return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
+    }
+
+    public function free_space()
+    {
+        return $this->to_human_filesize(disk_free_space($this->get_downloads_folder()));
+    }
+
+    public function get_downloads_folder()
+    {
+        $path = $this->config["outputFolder"];
+        if (strpos($path, "/") !== 0) {
+            $path = dirname(__DIR__) . '/' . $path;
+        }
+        return $path;
+    }
 }
 
 ?>

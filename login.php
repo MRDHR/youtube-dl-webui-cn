@@ -1,5 +1,5 @@
 <?php
-	header("Content-type:text/html;charset=gb2312");
+	header("Content-type:text/html;charset=utf-8");
 	require_once 'class/Session.php';
 	require_once 'class/Downloader.php';
 
@@ -32,7 +32,7 @@
 	<div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-			<h2>╡╟┬╝ги─м╚╧├▄┬ыrootгй :</h2>
+			<h2>я┐╜я┐╜┬╝я┐╜я┐╜─мя┐╜я┐╜я┐╜я┐╜я┐╜я┐╜rootя┐╜я┐╜ :</h2>
 		</div>
 		<div class="col-md-4"></div>
 	</div>
