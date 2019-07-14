@@ -54,9 +54,18 @@ if (!$session->is_logged_in()) {
                        type="text">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">下载</button>
+        <button type="submit" class="btn btn-primary">开始扒源</button>
     </form>
-    <br>
+    <br/>
+    <div>
+        <h3 class="panel-title"><b>扒封面图</b></h3>
+        <p>获取封面图功能只支持油管，有其他的网站需要请私聊我</p>
+        <p>使用方法：<br />1：填写油管视频的链接<br />2：点击下面的俩按钮<br /><b>如果高清版封面没有图片，请点击低清版。</b></p>
+        <br/>
+        <button class="btn btn-primary" onclick="getMaxCover()">获取高清版封面图</button>
+        <button class="btn btn-primary" onclick="getHqCover()">获取低清版封面图</button>
+    </div>
+    <br />
     <div class="row">
         <div class="col-lg-6">
             <div class="panel panel-info">
@@ -92,9 +101,10 @@ if (!$session->is_logged_in()) {
                     <p>保存的文件夹（例：/video/郡道roa组/油管/）<br/>保存的视频名称（带后缀 如：金刚熊.mp4）<br/><b>推特的视频最好是提供名字，不然会报错</b><br/>然后点击“下载”
                     </p>
                     <p><b>支持哪些网站？</b></p>
-                    <p><a href="http://rg3.github.io/youtube-dl/supportedsites.html">点我 </a> 支持的网站列表</p>
+                    <p><a href="http://rg3.github.io/youtube-dl/supportedsites.html" target="view_window">点我 </a>
+                        支持的网站列表</p>
                     <p><b>如何在计算机上下载视频？</b></p>
-                    <p>转到 <a href="http://www.mrdvh.info">视频源网站</a> -> 自己看着嗨 </p>
+                    <p>转到 <a href="http://www.mrdvh.info" target="view_window">视频源网站</a> -> 自己看着嗨 </p>
                 </div>
             </div>
         </div>

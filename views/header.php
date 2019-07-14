@@ -10,7 +10,21 @@
             setTimeout(function () {
                 $('#back_jobs').load(document.URL + ' #back_jobs');
             }, 0)
-        }, 1000)
+        }, 1000);
+
+        function getMaxCover() {
+            const url = document.getElementById('url').value;
+            if (url.indexOf("youtube") != -1 && url.indexOf("v=") != -1) {
+                window.open("https://i.ytimg.com/vi/" + url.substring(url.indexOf("v=") + 2) + "/maxresdefault.jpg");
+            }
+        }
+
+        function getHqCover() {
+            const url = document.getElementById('url').value;
+            if (url.indexOf("youtube") != -1 && url.indexOf("v=") != -1) {
+                window.open("https://i.ytimg.com/vi/" + url.substring(url.indexOf("v=") + 2) + "/hqdefault.jpg");
+            }
+        }
     </script>
 </head>
 <body>
