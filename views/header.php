@@ -13,16 +13,24 @@
         }, 1000);
 
         function getMaxCover() {
-            const url = document.getElementById('url').value;
-            if (url.indexOf("youtube") != -1 && url.indexOf("v=") != -1) {
-                window.open("https://res.mrdvh.info/vi/" + url.substring(url.indexOf("v=") + 2) + "/maxresdefault.jpg");
+            let url = document.getElementById('url').value;
+            if (url.indexOf('youtube') != -1 || url.indexOf('youtu.be') != -1) {
+                if (url.endsWith('/')) {
+                    url = url.substring(0, url.length)
+                }
+                url = url.substring(url.lastIndexOf("/") + 1).replace("watch?v=", "").replace('&feature=youtu.be', '');
+                window.open("https://res.mrdvh.info/vi/" + url + "/maxresdefault.jpg");
             }
         }
 
         function getHqCover() {
-            const url = document.getElementById('url').value;
-            if (url.indexOf("youtube") != -1 && url.indexOf("v=") != -1) {
-                window.open("https://res.mrdvh.info/vi/" + url.substring(url.indexOf("v=") + 2) + "/hqdefault.jpg");
+            let url = document.getElementById('url').value;
+            if (url.indexOf('youtube') != -1 || url.indexOf('youtu.be') != -1) {
+                if (url.endsWith('/')) {
+                    url = url.substring(0, url.length)
+                }
+                url = url.substring(url.lastIndexOf("/") + 1).replace("watch?v=", "").replace('&feature=youtu.be', '');
+                window.open("https://res.mrdvh.info/vi/" + url + "/hqdefault.jpg");
             }
         }
     </script>
