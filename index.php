@@ -60,12 +60,12 @@ if (!$session->is_logged_in()) {
     <div>
         <h3 class="panel-title"><b>扒封面图</b></h3>
         <p>获取封面图功能只支持油管，有其他的网站需要请私聊我</p>
-        <p>使用方法：<br />1：填写油管视频的链接<br />2：点击下面的俩按钮<br /><b>如果高清版封面没有图片，请点击低清版。</b></p>
+        <p>使用方法：<br/>1：填写油管视频的链接<br/>2：点击下面的俩按钮<br/><b>如果高清版封面没有图片，请点击低清版。</b></p>
         <br/>
         <button class="btn btn-primary" onclick="getMaxCover()">获取高清版封面图</button>
         <button class="btn btn-primary" onclick="getHqCover()">获取低清版封面图</button>
     </div>
-    <br />
+    <br/>
     <div class="row">
         <div class="col-lg-6">
             <div class="panel panel-info">
