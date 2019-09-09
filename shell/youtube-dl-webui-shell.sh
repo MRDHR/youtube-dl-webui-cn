@@ -15,7 +15,7 @@ saveDir=$2
 cd ${saveDir}
 saveName=$3
 if [ "$saveName" = "" ]; then
-  youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' ${saveUrl}
+  youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --hls-prefer-ffmpeg ${saveUrl}
 else
-  youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' ${saveUrl} -o ${saveName}
+  youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --hls-prefer-ffmpeg ${saveUrl} -o ${saveName}
 fi
