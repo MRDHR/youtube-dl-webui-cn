@@ -3,45 +3,19 @@
 <head>
     <meta charset="utf-8">
     <title>搬运组扒源工具</title>
-    <script type="application/javascript">
-        window.setInterval(() => {
-            setTimeout(function () {
-                $('#back_jobs').load(document.URL + ' #back_jobs');
-            }, 0)
-        }, 1000);
-
-        function getMaxCover() {
-            let url = document.getElementById('url').value;
-            if (url.indexOf('youtube') != -1 || url.indexOf('youtu.be') != -1) {
-                if (url.endsWith('/')) {
-                    url = url.substring(0, url.length)
-                }
-                url = url.substring(url.lastIndexOf("/") + 1).replace("watch?v=", "").replace('&feature=youtu.be', '');
-                window.open("https://res.mrdvh.info/vi/" + url + "/maxresdefault.jpg");
-            }
-        }
-
-        function getHqCover() {
-            let url = document.getElementById('url').value;
-            if (url.indexOf('youtube') != -1 || url.indexOf('youtu.be') != -1) {
-                if (url.endsWith('/')) {
-                    url = url.substring(0, url.length)
-                }
-                url = url.substring(url.lastIndexOf("/") + 1).replace("watch?v=", "").replace('&feature=youtu.be', '');
-                window.open("https://res.mrdvh.info/vi/" + url + "/hqdefault.jpg");
-            }
-        }
-    </script>
+    <link rel="stylesheet" type="text/css"
+          href="http://static.mrdvh.info/static/style/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css"
+          href="http://static.mrdvh.info/static/style/common.css">
+    <link rel="stylesheet" type="text/css"
+          href="http://static.mrdvh.info/static/style/skin/base/app_setting.css">
+    <link rel="stylesheet" type="text/css"
+          href="http://static.mrdvh.info/static/style/skin/win10.css">
+    <script type="text/javascript" src="http://www.mrdvh.info/static/js/lib/seajs/sea.js"></script>
+    <script type="text/javascript" src="http://static.mrdvh.info/static/js/lib/jquery-1.8.0.min.js"></script>
 </head>
 <body class="can-select">
-<div class="navbar navbar-default">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="">搬运组扒源工具</a>
-    </div>
+<div class="panel-heading" style="width: 100%;background:#1976D2">
+    <a class="panel-heading" href=""><b style="font-size: 24px;color: white">搬运组扒源工具</b></a>
 </div>
 

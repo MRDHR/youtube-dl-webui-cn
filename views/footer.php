@@ -1,16 +1,8 @@
-<footer class="footer">
-    <div class="well text-center">
-        <p><a href="https://github.com/oldiy/youtube-dl-webui-cn" target="_blank">根据oldiy的中文版进行修改</a></p>
-    </div>
-</footer>
-<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#url").focus();
-    });
-</script>
-<script type="text/javascript" src="http://www.mrdvh.info/static/js/lib/seajs/sea.js"></script>
+<div id="footer"
+     style="background-color:#B3E5FC;color:#1976D2;clear:both;text-align:center;height: 40px;font-size: 16px;line-height: 40px"
+     onclick="window.open('https://github.com/oldiy/youtube-dl-webui-cn')">
+    根据oldiy的中文版进行修改
+</div>
 <script type="text/javascript">
     var baseUrl = 'http://static.mrdvh.info/';
     seajs.config({
@@ -52,6 +44,55 @@
             });
         });
     });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#url").focus();
+    });
+
+    window.setInterval(() => {
+        setTimeout(function () {
+            $('#back_jobs').load(document.URL + ' #back_jobs');
+        }, 0)
+    }, 1000);
+
+    function getMaxCover() {
+        let url = document.getElementById('url').value;
+        if (url.indexOf('youtube') != -1 || url.indexOf('youtu.be') != -1) {
+            if (url.endsWith('/')) {
+                url = url.substring(0, url.length)
+            }
+            url = url.substring(url.lastIndexOf("/") + 1).replace("watch?v=", "").replace('&feature=youtu.be', '');
+            window.open("https://res.mrdvh.info/vi/" + url + "/maxresdefault.jpg");
+        }
+    }
+
+    function getHqCover() {
+        let url = document.getElementById('url').value;
+        if (url.indexOf('youtube') != -1 || url.indexOf('youtu.be') != -1) {
+            if (url.endsWith('/')) {
+                url = url.substring(0, url.length)
+            }
+            url = url.substring(url.lastIndexOf("/") + 1).replace("watch?v=", "").replace('&feature=youtu.be', '');
+            window.open("https://res.mrdvh.info/vi/" + url + "/hqdefault.jpg");
+        }
+    }
+
+    function check() {
+        var url = $("#url").val();
+        if (url == null || url == "") {
+            alert("视频链接不能为空");
+            return false;
+        }
+
+        var path = $("#videoPath").val();
+        if (path == null || path == "") {
+            alert("保存的文件夹不能为空");
+            return false;
+        }
+        return true;
+    }
+
 </script>
 </body>
 </html>

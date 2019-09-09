@@ -117,7 +117,7 @@ class Downloader
 
     private function do_download()
     {
-        $cmd = require dirname(__DIR__) . '/shell/youtube-dl-webui-shell.sh';
+        $cmd = dirname(dirname(__FILE__)) . '/shell/youtube-dl-webui-shell.sh';
         $cmd .= " " . escapeshellarg($this->url);
         $cmd .= " " . escapeshellarg($this->videoPath);
         $cmd .= " " . escapeshellarg($this->videoName);

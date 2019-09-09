@@ -9,20 +9,8 @@ $file = new FileHandler;
 
 require 'views/header.php';
 
-if (isset($_GET['kill']) && !empty($_GET['kill']) && $_GET['kill'] === "all") {
-    Downloader::kill_them_all();
-}
-
-if (isset($_POST['urls']) && !empty($_POST['urls']) && isset($_POST['videoPaths']) && !empty($_POST['videoPaths'])) {
-    echo "<p>" . '获取的输入：' . $_POST['urls'] . $_POST['videoNames'] . $_POST['videoPaths'] . "</p>";
-    $downloader = new Downloader($_POST['urls'], $_POST['videoNames'], $_POST['videoPaths']);
-
-    if (!isset($_SESSION['errors'])) {
-        header("Location: index.php");
-    }
-}
 ?>
-<div class="container">
+<div class="container" style="margin-top: 10px">
     <?php
     if (isset($_SESSION['errors']) && $_SESSION['errors'] > 0) {
         foreach ($_SESSION['errors'] as $e) {
@@ -35,7 +23,8 @@ if (isset($_POST['urls']) && !empty($_POST['urls']) && isset($_POST['videoPaths'
             <h2 class="panel-title"><b style="font-size: 24px;color: white">扒源</b></h2>
         </div>
         <div class="panel-body" style="background: #B3E5FC">
-            <form id="download-form" style="width: 100%" action="index.php" method="post">
+            <form id="download-form" style="width: 100%" action="StartDownload.php" method="post"
+                  onsubmit="return check()">
                 <div style="width: 98%">
                     <input id="url" class="form-control" name="urls" placeholder="请输入视频链接"
                            type="text"/>
@@ -113,7 +102,6 @@ if (isset($_POST['urls']) && !empty($_POST['urls']) && isset($_POST['videoPaths'
             </div>
         </div>
     </div>
-
 </div>
 <?php
 unset($_SESSION['errors']);
