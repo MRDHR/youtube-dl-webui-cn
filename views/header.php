@@ -3,9 +3,6 @@
 <head>
     <meta charset="utf-8">
     <title>搬运组扒源工具</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="http://www.mrdvh.info/static/js/lib/seajs/sea.js"></script>
     <script type="application/javascript">
         window.setInterval(() => {
             setTimeout(function () {
@@ -36,7 +33,7 @@
         }
     </script>
 </head>
-<body>
+<body class="can-select">
 <div class="navbar navbar-default">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
